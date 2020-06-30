@@ -35,7 +35,10 @@ public class SampleDataGenerator {
 
         SiteStatsDao siteStatsDao = new SiteStatsDaoRedisImpl(jedisPool);
         CapacityDao capacityDao = new CapacityDaoRedisImpl(jedisPool);
-        MetricDao metricDao = new MetricDaoRedisZsetImpl(jedisPool);
+        //Using TS
+        MetricDao metricDao = new MetricDaoRedisTSImpl(jedisPool);
+        //Using regular sorted set
+//        MetricDao metricDao = new MetricDaoRedisZsetImpl(jedisPool);
         FeedDao feedDao = new FeedDaoRedisImpl(jedisPool);
         MeterReadingResource meterResource = new MeterReadingResource(siteStatsDao, metricDao,
                 capacityDao, feedDao);

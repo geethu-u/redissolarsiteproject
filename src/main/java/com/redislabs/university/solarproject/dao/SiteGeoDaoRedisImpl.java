@@ -95,7 +95,6 @@ public class SiteGeoDaoRedisImpl implements SiteGeoDao {
              // END Challenge #5
 
              for (Site site : sites) {
-                 System.out.println(scores.get(site.getId()).get());
                  if (scores.get(site.getId()).get() >= capacityThreshold) {
                      results.add(site);
                  }

@@ -42,7 +42,13 @@ public class RedisSchema {
                 String.valueOf(minuteBlock) + ":" +
                 String.valueOf(maxHits));
     }
-
+    static String getRateLimiterKeyForSlidingWindow(String name, long windowSize,
+                                    long maxHits) {
+        return KeyHelper.getKey("limiter:" +
+                String.valueOf(windowSize) + ":" +
+                name + ":" +
+                String.valueOf(maxHits));
+    }
     // sites:geo
     // Redis type: geo
     static String getSiteGeoKey() {
